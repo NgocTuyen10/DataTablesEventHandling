@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Edit Page</title>
+</head>
+<body>
+	<h2>Edit Customer Information</h2>
+	<h:form>
+		<table>
+			<tr>
+				<td>Id :</td>
+				<td><h:outputText size="10"
+						value="#{customerBean.customerUpdate.id}" /></td>
+			</tr>
+			<tr>
+				<td>Name :</td>
+				<td><h:inputText size="20"
+						value="#{customerBean.customerUpdate.name}" /></td>
+			</tr>
+			<tr>
+				<td>Phone number :</td>
+				<td><h:inputText size="15"
+						value="#{customerBean.customerUpdate.phoneNumber}" /></td>
+			</tr>
+			<tr>
+				<td>Address :</td>
+				<td><h:inputText size="15"
+						value="#{customerBean.customerUpdate.address}" /></td>
+			</tr>
+			<tr>
+				<td>City :</td>
+				<td><h:inputText size="15"
+						value="#{customerBean.customerUpdate.city}" /></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><h:commandButton value="Save" action="#{customerBean.save}" /></td>
+			</tr>
+		</table>
+	</h:form>
+</body>
+</html>

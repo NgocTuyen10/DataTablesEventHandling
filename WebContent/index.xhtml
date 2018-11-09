@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Data Tables</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+</h:head>
+<h:body>
+	<h2>Customers Information Table</h2>
+	<h:form>
+		<h:dataTable value="#{customerBean.customers}" var="customer"
+			styleClass="customerTable" headerClass="customerTableHeader"
+			rowClasses="customerTableOddRow,customerTableEvenRow">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{customer.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				<h:outputText value="#{customer.name}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Phone number</f:facet>
+				<h:outputText value="#{customer.phoneNumber}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Address</f:facet>
+				<h:outputText value="#{customer.address}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">City</f:facet>
+				<h:outputText value="#{customer.city}" />
+			</h:column>
+
+			<h:column>
+				<h:commandButton value="Edit"
+					action="#{customerBean.edit(customer)}">
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<h:commandButton value="Delete"
+					action="#{customerBean.deleteRow(customer)}"></h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<h3>Add Customer</h3>
+		<hr />
+
+		<table>
+			<tr>
+				<td>Id :</td>
+				<td><h:inputText size="10" value="#{customerBean.id}" /></td>
+			</tr>
+
+			<tr>
+				<td>Name :</td>
+				<td><h:inputText size="20" value="#{customerBean.name}" /></td>
+			</tr>
+
+			<tr>
+				<td>Phone number :</td>
+				<td><h:inputText size="15" value="#{customerBean.phoneNumber}" /></td>
+			</tr>
+
+			<tr>
+				<td>Address :</td>
+				<td><h:inputText size="15" value="#{customerBean.address}" /></td>
+			</tr>
+
+			<tr>
+				<td>City :</td>
+				<td><h:inputText size="15" value="#{customerBean.city}" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><h:commandButton value="Add Customer"
+						action="#{customerBean.add}" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
