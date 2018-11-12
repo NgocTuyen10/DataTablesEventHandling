@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -13,30 +13,44 @@
 		<table>
 			<tr>
 				<td>Id :</td>
-				<td><h:outputText size="10"
-						value="#{customerBean.customerUpdate.id}" /></td>
+				<td><h:outputText value="#{customerBean.customerUpdate.id}" /></td>
 			</tr>
 			<tr>
 				<td>Name :</td>
-				<td><h:inputText size="20"
-						value="#{customerBean.customerUpdate.name}" /></td>
+				<td><h:inputText id="name"
+						value="#{customerBean.customerUpdate.name}"
+						validatorMessage="Name includes only characters or white sapces">
+						<f:validateRegex pattern="^[a-zA-Z]+[\-'\s]?[a-zA-Z]+$" />
+					</h:inputText></td>
+				<td><h:message for="name" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td>Phone number :</td>
-				<td><h:inputText size="15"
-						value="#{customerBean.customerUpdate.phoneNumber}" /></td>
+				<td><h:inputText id="phonenumber"
+						value="#{customerBean.customerUpdate.phoneNumber}"
+						validatorMessage="Phone number includes only digit and length is 10">
+						<f:validateRegex pattern="^[0-9]{10}$" />
+					</h:inputText></td>
+				<td><h:message for="phonenumber" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td>Address :</td>
-				<td><h:inputText size="15"
-						value="#{customerBean.customerUpdate.address}" /></td>
+				<td><h:inputText value="#{customerBean.customerUpdate.address}"
+						id="address"
+						validatorMessage="Address includes only characters or white sapces">
+						<f:validateRegex pattern="^[a-zA-Z]+[\-'\s]?[a-zA-Z]+$" />
+					</h:inputText></td>
+				<td><h:message for="address" style="color:red" /></td>
 			</tr>
 			<tr>
 				<td>City :</td>
-				<td><h:inputText size="15"
-						value="#{customerBean.customerUpdate.city}" /></td>
+				<td><h:inputText value="#{customerBean.customerUpdate.city}"
+						id="city"
+						validatorMessage="City includes only characters or white sapces">
+						<f:validateRegex pattern="^[a-zA-Z]+[\-'\s]?[a-zA-Z]+$" />
+					</h:inputText></td>
+				<td><h:message for="city" style="color:red" /></td>
 			</tr>
-
 			<tr>
 				<td></td>
 				<td><h:commandButton value="Save" action="#{customerBean.save}" /></td>
